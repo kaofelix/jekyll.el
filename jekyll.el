@@ -90,12 +90,12 @@ contains the date."
 (defun jekyll-list-posts ()
   "List all files on jekyll posts directory"
   (interactive)
-  (find-file(concat jekyll-directory "_posts/")))
+  (find-file(concat jekyll-directory jekyll-posts-dir)))
 
 (defun jekyll-list-drafts ()
   "List all files on jekyll drafts directory"
   (interactive)
-  (find-file(concat jekyll-directory "_drafts/")))
+  (find-file(concat jekyll-directory jekyll-drafts-dir)))
 
 (defun jekyll-init-keybindings ()
   "Initialize default keybindings for jekyll"
