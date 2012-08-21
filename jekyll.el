@@ -87,18 +87,22 @@ contains the date."
       (find-file filename)
       (set-window-point (selected-window) old-point)))))
 
+(defun jekyll-list-posts ()
+  "List all files on jekyll posts directory"
+  (interactive)
+  (find-file(concat jekyll-directory "_posts/")))
+
+(defun jekyll-list-drafts ()
+  "List all files on jekyll drafts directory"
+  (interactive)
+  (find-file(concat jekyll-directory "_drafts/")))
+
 (defun jekyll-init-keybindings ()
   "Initialize default keybindings for jekyll"
   (global-set-key (kbd "C-c j n") 'jekyll-draft-post)
   (global-set-key (kbd "C-c j P") 'jekyll-publish-post)
-
-  (global-set-key (kbd "C-c j p") (lambda ()
-                                    (interactive)
-                                    (find-file(concat jekyll-directory "_posts/"))))
-  (global-set-key (kbd "C-c j d") (lambda ()
-                                    (interactive)
-                                    (find-file(concat jekyll-directory "_drafts/"))))
-)
+  (global-set-key (kbd "C-c j p") 'jekyll-list-posts)
+  (global-set-key (kbd "C-c j d") 'jekyll-list-drafts))
 
 ;; if mumamo is present we're going to import the mumamo modes
 (if (require 'mumamo-fun nil t)
