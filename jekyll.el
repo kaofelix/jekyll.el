@@ -66,7 +66,7 @@
 contains the date."
   (interactive)
   (cond
-   ((not (equal
+   ((not (file-equal-p
           (file-name-directory (buffer-file-name (current-buffer)))
           (concat jekyll-directory jekyll-drafts-dir)))
     (message "This is not a draft post.")
